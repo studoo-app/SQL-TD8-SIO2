@@ -7,11 +7,10 @@
 
 Vous êtes amené à créer et à maintenir la base de données d’une médiathèque. Au fil du temps, de nouvelles exigences apparaissent, nécessitant à la fois des optimisations de la structure initiale et la mise en place de nouvelles logiques métier.
 
-Votre travail s’articulera en trois grandes parties :
+Votre travail s’articulera en deux grandes parties :
 
-1. **Implémentation d’une base simple** (avec une structure volontairement non optimale).
-2. **Correction / optimisation de la base** en proposant les améliorations structurelles adéquates.
-3. **Implémentation de nouvelles logiques** nécessitant une modification de la structure de la base.
+1. **Correction / optimisation de la base** en proposant les améliorations structurelles adéquates.
+2. **Implémentation de nouvelles logiques** nécessitant une modification de la structure de la base.
 
 L’objectif est de comprendre et d’appliquer les principes de conception d’une base de données relationnelle, d’en améliorer la structure au besoin (normalisation, clés étrangères, index, etc.) et d’implémenter de nouvelles fonctionnalités métier.
 
