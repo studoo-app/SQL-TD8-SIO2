@@ -12,6 +12,7 @@ services:
       TZ: Europe/Paris
     volumes:
       - ./var/dbdata:/var/lib/mysql
+      - ./docs:/docker-entrypoint-initdb.d
   phpmyadmin:
     container_name: SQL-TD8-SIO2-pma
     image: phpmyadmin/phpmyadmin

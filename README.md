@@ -17,32 +17,9 @@ L’objectif est de comprendre et d’appliquer les principes de conception d’
 
 ---
 
-### **Partie 1 : Implémentation d’une base de données simple**
+### ** Description de la base de données**
 
-Dans cette première partie, vous allez créer une base de données nommée `Mediatheque` contenant les tables suivantes :
-
-1. **Livre**
-
-    - `idLivre` (clé primaire)
-    - `titre`
-    - `auteur`
-    - `datePublication`
-    - `genre`
-    - `nombreExemplaires`
-2. **Adherent**
-
-    - `idAdherent` (clé primaire)
-    - `nom`
-    - `prenom`
-    - `dateInscription`
-    - `telephone`
-3. **Emprunt**
-
-    - `idEmprunt` (clé primaire)
-    - `idLivre`
-    - `idAdherent`
-    - `dateEmprunt`
-    - `dateRetour` (peut être `NULL` si le livre n’est pas encore retourné)
+La base de données de la médiathèque est composée de trois tables principales :
 
 ```mermaid
 erDiagram
@@ -75,19 +52,9 @@ erDiagram
     ADHERENT ||--|{ EMPRUNT : "effectue"
 
 ```
-
-**Instructions :**
-
-1. Créez la base `Mediatheque`.
-2. Créez les tables ci-dessus.
-3. Renseignez quelques **données de test** dans chacune des tables (au moins 5 livres, 3 adhérents et quelques emprunts).
-4. Vérifiez le bon fonctionnement de la base en exécutant des requêtes simples de sélection sur chaque table.
-
-> **Remarque** : La structure proposée est volontairement simple. Vous pourrez constater certaines limites ou redondances. Par exemple, l’auteur est directement stocké dans la table `Livre`, le genre est un simple texte, etc. Dans les étapes suivantes, vous proposerez des améliorations.
-
 ---
 
-### **Partie 2 : Correction / Optimisation de la base**
+### **Partie 1 : Correction / Optimisation de la base**
 
 À ce stade, la base fonctionne mais **n’est pas optimisée**. On vous demande de :
 
@@ -102,7 +69,7 @@ Vous documenterez chaque changement en **expliquant** pourquoi il est utile.
 
 ---
 
-### **Partie 3 : Implémentation de nouvelles logiques**
+### **Partie 2 : Implémentation de nouvelles logiques**
 
 Suite à des retours d’utilisateurs et à des évolutions de la politique de prêt, de **nouvelles règles** doivent être mises en place :
 
