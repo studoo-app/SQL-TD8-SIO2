@@ -17,7 +17,7 @@ L’objectif est de comprendre et d’appliquer les principes de conception d’
 
 ---
 
-### ** Description de la base de données**
+### **Description de la base de données**
 
 La base de données de la médiathèque est composée de trois tables principales :
 
