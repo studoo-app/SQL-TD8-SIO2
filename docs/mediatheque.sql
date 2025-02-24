@@ -1,11 +1,9 @@
-CREATE
-DATABASE Mediatheque;
-USE
-Mediatheque;
+CREATE DATABASE mediatheque;
+USE mediatheque;
 
 CREATE TABLE Livre
 (
-    idLivre           INT PRIMARY KEY,
+ idLivre           INT PRIMARY KEY,
     titre             VARCHAR(100) NOT NULL,
     auteur            VARCHAR(100) NOT NULL,
     datePublication   DATE,
