@@ -48,13 +48,13 @@
 
 -- 1) Table Genre
 CREATE TABLE Genre (
-    idGenre INT PRIMARY KEY,
+    idGenre INT PRIMARY KEY AUTO_INCREMENT,
     libelleGenre VARCHAR(50) NOT NULL
 );
 
 -- 2) Table Livre avec clé étrangère sur Genre
 CREATE TABLE Livre (
-    idLivre INT PRIMARY KEY,
+    idLivre INT PRIMARY KEY AUTO_INCREMENT,
     titre VARCHAR(100) NOT NULL,
     datePublication DATE,
     idGenre INT,
@@ -65,7 +65,7 @@ CREATE TABLE Livre (
 
 -- 3) Table Adherent (inchangée sauf si besoin de modifications)
 CREATE TABLE Adherent (
-    idAdherent INT PRIMARY KEY,
+    idAdherent INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50),
     prenom VARCHAR(50),
     dateInscription DATE,
@@ -74,9 +74,8 @@ CREATE TABLE Adherent (
 
 -- 4) Table Auteur (si on veut un fichier d'auteurs propre)
 CREATE TABLE Auteur (
-    idAuteur INT PRIMARY KEY,
-    nomAuteur VARCHAR(50) NOT NULL,
-    prenomAuteur VARCHAR(50)
+    idAuteur INT PRIMARY KEY AUTO_INCREMENT,
+    nomAuteur VARCHAR(255) NOT NULL,
 );
 
 -- 5) Table Livre_Auteur (table d’association pour la relation N-N entre Livre et Auteur)
@@ -90,7 +89,7 @@ CREATE TABLE Livre_Auteur (
 
 -- 6) Table Emprunt (avec FK vers Livre et Adherent)
 CREATE TABLE Emprunt (
-    idEmprunt INT PRIMARY KEY,
+    idEmprunt INT PRIMARY KEY AUTO_INCREMENT,
     idLivre INT,
     idAdherent INT,
     dateEmprunt DATE,
@@ -99,9 +98,6 @@ CREATE TABLE Emprunt (
     CONSTRAINT FK_Emprunt_Adherent FOREIGN KEY (idAdherent) REFERENCES Adherent(idAdherent)
 );
 
--- Exemples d’index
-CREATE INDEX idx_livre_titre ON Livre(titre);
-CREATE INDEX idx_adherent_nom_prenom ON Adherent(nom, prenom);
 
 ```
 
