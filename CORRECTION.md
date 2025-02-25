@@ -100,6 +100,45 @@ CREATE TABLE Emprunt (
 
 
 ```
+#### **Migration des données vers la nouvelle base**
+
+```sql
+
+-- Migration des données de la table Auteur
+INSERT INTO mediatheque2.Auteur (nomAuteur)
+SELECT DISTINCT auteur FROM mediatheque.Livre;
+
+-- Migration des données de la table Genre
+INSERT INTO mediatheque2.Genre (libelleGenre)
+SELECT DISTINCT genre FROM mediatheque.Livre;
+
+-- Migration de la table Adherent (inchangée)
+INSERT INTO mediatheque2.Adherent (nom, prenom, dateInscription, telephone)
+SELECT nom, prenom, dateInscription, telephone FROM mediatheque.Adherent;
+
+-- Migration de la table Livre sans la relation genre
+INSERT INTO mediatheque2.Livre(titre,datePublication,idGenre,nombreExemplaires)
+SELECT titre,datePublication,null,nombreExemplaires FROM mediatheque.Livre
+
+-- Ajout de la relation genre
+UPDATE mediatheque2.Livre l
+JOIN mediatheque.Livre m ON l.titre = m.titre
+JOIN mediatheque2.Genre g ON m.genre = g.libelleGenre
+SET l.idGenre = g.idGenre;
+
+-- Migration de la table Livre_Auteur
+INSERT INTO mediatheque2.Livre_Auteur (idLivre, idAuteur)
+SELECT l.idLivre, a.idAuteur
+FROM mediatheque.Livre m
+JOIN mediatheque2.Livre l ON m.titre = l.titre
+JOIN mediatheque2.Auteur a ON m.auteur = a.nomAuteur;
+
+-- Migration de la table Emprunt
+INSERT INTO mediatheque2.Emprunt (idLivre, idAdherent, dateEmprunt, dateRetour)
+SELECT idLivre, idAdherent, dateEmprunt, dateRetour FROM mediatheque.Emprunt;
+
+
+```
 
 ---
 
